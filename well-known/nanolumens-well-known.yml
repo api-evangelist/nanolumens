@@ -1,0 +1,64 @@
+generated: '2026-08-04'
+method: probed
+source: live probes of the NanoLumens public hosts
+note: >-
+  No /.well-known/ document was found on any NanoLumens host. The corporate site
+  (www.nanolumens.com) answers 404 for every discovery path. The AWARE production API
+  gateway (api.nanolumens.com, a WSO2 ELB in us-west-2) refused every connection on
+  ports 80/443/8243/9443 from the probe network, so no discovery document could be
+  read there. Recorded as evidence of the discovery pass; no WellKnown pointer is
+  wired because nothing was found.
+hosts:
+- host: https://www.nanolumens.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /openapi.yaml
+    status: 404
+  - path: /swagger.json
+    status: 404
+  - path: /v1/openapi.json
+    status: 404
+  - path: /api-docs
+    status: 404
+  - path: /docs
+    status: 404
+  - path: /redoc
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://api.nanolumens.com
+  note: >-
+    DNS resolves to aware-production-wso2-elb-314629158.us-west-2.elb.amazonaws.com —
+    the AWARE platform's WSO2 API gateway. TCP connect timed out on 80, 443, 8243 and
+    9443 from the probe network, so no HTTP status was ever returned.
+  documents:
+  - path: /openapi.json
+    status: 0
+    result: connection-timeout
+  - path: /swagger.json
+    status: 0
+    result: connection-timeout
+  - path: /api/am/devportal/v3/apis
+    status: 0
+    result: connection-timeout
+  - path: /.well-known/openid-configuration
+    status: 0
+    result: connection-timeout
+  - path: /.well-known/agent-card.json
+    status: 0
+    result: connection-timeout

@@ -1,17 +1,35 @@
 aid: nanolumens
 name: NanoLumens
-description: 'NanoLumens is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'NanoLumens is an American designer and manufacturer of direct-view LED
+  (dvLED) displays and video walls, headquartered in Atlanta, Georgia and founded in
+  2006 by Rick Cope. It builds fixed and flexible indoor and outdoor displays in custom
+  sizes, shapes and curvatures across the Engage Pro, Engage, NXT, Nixel, NanoPanel 55,
+  Captivate, Performance, CLRVision, CLRVU and NanoBanner product lines, together with
+  Aurora video processing and the NanoSuite display-management software. Its displays
+  are deployed in retail, casinos, higher education, sports and arenas, control rooms,
+  hospitality, themed entertainment, government, corporate and transportation
+  environments. The software side of the business — the AWARE platform and NanoSuite,
+  powered by the ISAAC ecosystem — markets a JSON REST API and webhook-based alerting
+  for remote diagnostics, content scheduling and display-fleet monitoring, but that API
+  is delivered to display owners through an authenticated tenant and has no public
+  developer portal, API reference or machine-readable specification.'
 url: https://raw.githubusercontent.com/api-evangelist/nanolumens/refs/heads/main/apis.yml
+image: https://www.nanolumens.com/logo.svg
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
+- Digital Signage
+- LED Displays
+- Display Manufacturing
+- Audio Visual
+- Digital Out Of Home
+- Device Management
+- Remote Monitoring
+- Hardware
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +37,63 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/nanolumens-domain-security.yml
 - type: Website
+  url: https://www.nanolumens.com/
+- type: About
+  url: https://www.nanolumens.com/about/
+- type: Products
+  url: https://www.nanolumens.com/products/
+- type: Support
+  url: https://www.nanolumens.com/support/
+- type: FAQ
+  url: https://www.nanolumens.com/faqs/
+- type: Blog
+  url: https://www.nanolumens.com/blog/
+- type: Resources
+  url: https://www.nanolumens.com/resources/
+- type: TermsOfService
+  url: https://www.nanolumens.com/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.nanolumens.com/privacy-policy
+- type: ServiceLevelAgreement
+  url: https://www.nanolumens.com/service-level-agreement
+- type: Partners
+  url: https://www.nanolumens.com/channel-partners
+- type: Careers
+  url: https://www.nanolumens.com/careers
+- type: Contact
+  url: https://www.nanolumens.com/connect-with-us
+- type: Investors
   url: https://forgeglobal.com/nanolumens_stock/
+- type: LLMsTxt
+  url: llms/nanolumens-llms.txt
+x-enrichment:
+  date: '2026-08-04'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: >-
+    NanoLumens markets a "JSON REST API" on the NanoSuite product page, and its AWARE
+    production API gateway resolves at api.nanolumens.com (a WSO2 ELB in us-west-2), but
+    there is no public developer portal or reference anywhere on nanolumens.com and the
+    gateway refused every connection on 80/443/8243/9443 — the contract is only available
+    to display owners with an authenticated NanoSuite tenant.
+  evidence:
+  - url: https://www.nanolumens.com/nanosuite/
+    status: 200
+  - url: https://www.nanolumens.com/openapi.json
+    status: 404
+  - url: https://www.nanolumens.com/swagger.json
+    status: 404
+  - url: https://www.nanolumens.com/llms.txt
+    status: 404
+  - url: https://www.nanolumens.com/.well-known/agent-card.json
+    status: 404
+  - url: https://api.nanolumens.com/openapi.json
+    status: 0
+  checked: '2026-08-04'
