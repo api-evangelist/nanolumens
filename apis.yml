@@ -14,6 +14,17 @@ description: 'NanoLumens is an American designer and manufacturer of direct-view
   is delivered to display owners through an authenticated tenant and has no public
   developer portal, API reference or machine-readable specification.'
 url: https://raw.githubusercontent.com/api-evangelist/nanolumens/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.nanolumens.com/logo.svg
 x-type: company
 x-source: harvest:secondary-market
